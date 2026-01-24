@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "@builder.io/qwik": "^1.18.0",
-    "@builder.io/qwik-city": "^1.18.0",
+    "@builder.io/qwik-city": "latest",
     "@eslint/js": "latest",
     "@tailwindcss/vite": "^4.1.4",
     "@types/node": "20.19.0",
@@ -41,5 +41,8 @@
     "vite": "7.2.6",
     "vite-tsconfig-paths": "^4.2.1",
     "zod": "^4.3.6"
+  },
+  "dependencies": {
+    "@libsql/client": "latest"
   }
 }

@@ -1,16 +1,52 @@
 import { component$ } from '@builder.io/qwik';
 import { routeAction$, Form, zod$, z } from '@builder.io/qwik-city';
+import { tursoClient } from '~/utils/turso';
 
 export const useDonorRegisterAction = routeAction$(
-  async (data) => {
-    // Simulate database delay and insertion
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log('Donor data received:', data);
+  async (data, requestEvent) => {
+    try {
+      const client = tursoClient(requestEvent);
 
-    return {
-      success: true,
-      message: 'Donante registrado correctamente',
-    };
+      await client.execute({
+        sql: `INSERT INTO donantes (
+          nombre, 
+          apellido, 
+          dni, 
+          fecha_nacimiento, 
+          domicilio, 
+          celular, 
+          es_donante_previo
+        ) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+        args: [
+          data.firstName,
+          data.lastName,
+          data.dni,
+          data.birthDate,
+          data.address,
+          data.phone,
+          data.hasDonated === 'yes' ? 1 : 0
+        ],
+      });
+
+      return {
+        success: true,
+        message: 'Donante registrado correctamente',
+      };
+    } catch (e: any) {
+      if (e.code === 'SQLITE_CONSTRAINT' || (e.message && e.message.includes('UNIQUE constraint failed: donantes.dni'))) {
+        return requestEvent.fail(400, {
+          fieldErrors: {
+            dni: 'Este DNI ya está registrado.',
+          },
+          message: 'Error de validación',
+        });
+      }
+
+      console.error('Error registering donor:', e);
+      return requestEvent.fail(500, {
+        message: 'Ocurrió un error al guardar los datos. Intente nuevamente.',
+      });
+    }
   },
   zod$({
     firstName: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
