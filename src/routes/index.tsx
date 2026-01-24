@@ -69,10 +69,10 @@ export default component$(() => {
       <div class="max-w-md w-full space-y-8 bg-white p-8 rounded-xl shadow-lg border border-gray-100">
         <div>
           <h2 class="mt-2 text-center text-3xl font-extrabold text-gray-900">
-            Registro de Donante
+            Registrar Nuevo Donante
           </h2>
           <p class="mt-2 text-center text-sm text-gray-600">
-            Complete el formulario para unirse a nuestra comunidad.
+            Ingrese los datos de la ficha física al sistema.
           </p>
         </div>
 

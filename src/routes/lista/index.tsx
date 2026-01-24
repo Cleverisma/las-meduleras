@@ -1,5 +1,5 @@
 import { component$ } from '@builder.io/qwik';
-import { routeLoader$, Form, useLocation } from '@builder.io/qwik-city';
+import { routeLoader$, useLocation } from '@builder.io/qwik-city';
 import { tursoClient } from '~/utils/turso';
 
 interface Donante {
@@ -50,7 +50,7 @@ export default component$(() => {
             <div class="md:flex md:items-center md:justify-between mb-6">
                 <h1 class="text-2xl font-bold text-gray-900">Listado de Donantes</h1>
                 <div class="mt-4 md:mt-0">
-                    <Form action={loc.url.pathname} method="get" class="flex gap-2">
+                    <form action={loc.url.pathname} method="get" class="flex gap-2">
                         <div class="relative rounded-md shadow-sm">
                             <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                 <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -80,7 +80,7 @@ export default component$(() => {
                                 Limpiar
                             </a>
                         )}
-                    </Form>
+                    </form>
                 </div>
             </div>
 
