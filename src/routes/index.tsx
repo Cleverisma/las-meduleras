@@ -1,6 +1,7 @@
 import { component$ } from '@builder.io/qwik';
 import { routeAction$, Form, zod$, z } from '@builder.io/qwik-city';
 import { tursoClient } from '~/utils/turso';
+import Logo from '~/media/logo.avif?jsx';
 
 export const useDonorRegisterAction = routeAction$(
   async (data, requestEvent) => {
@@ -67,7 +68,8 @@ export default component$(() => {
   return (
     <div class="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8 flex justify-center items-center">
       <div class="max-w-md w-full space-y-8 bg-white p-8 rounded-xl shadow-lg border border-gray-100">
-        <div>
+        <div class="flex flex-col items-center">
+          <Logo />
           <h2 class="mt-2 text-center text-3xl font-extrabold text-gray-900">
             Registrar Nuevo Donante
           </h2>
