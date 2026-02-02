@@ -28,6 +28,7 @@
     "@builder.io/qwik-city": "latest",
     "@eslint/js": "latest",
     "@tailwindcss/vite": "^4.1.4",
+    "@types/bcryptjs": "^3.0.0",
     "@types/node": "20.19.0",
     "eslint": "9.32.0",
     "eslint-plugin-qwik": "^1.18.0",
@@ -45,6 +46,7 @@
     "zod": "^4.3.6"
   },
   "dependencies": {
-    "@libsql/client": "latest"
+    "@libsql/client": "latest",
+    "bcryptjs": "^3.0.3"
   }
 }

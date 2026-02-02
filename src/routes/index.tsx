@@ -66,15 +66,15 @@ export default component$(() => {
   const action = useDonorRegisterAction();
 
   return (
-    <div class="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8 flex justify-center items-center">
-      <div class="max-w-md w-full space-y-8 bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+    <div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 flex justify-center items-center">
+      <div class="max-w-3xl w-full space-y-10 bg-white p-10 rounded-2xl shadow-xl border border-gray-100">
         <div class="flex flex-col items-center">
           <Logo />
-          <h2 class="mt-2 text-center text-3xl font-extrabold text-gray-900">
+          <h2 class="mt-4 text-center text-4xl font-extrabold text-gray-900">
             Registrar Nuevo Donante
           </h2>
-          <p class="mt-2 text-center text-sm text-gray-600">
-            Ingrese los datos de la ficha física al sistema.
+          <p class="mt-3 text-center text-lg text-gray-600">
+            Dimensiones aumentadas para mayor legibilidad.
           </p>
         </div>
 
@@ -106,129 +106,129 @@ export default component$(() => {
               {/* Fields are not literally using -space-y-px here to keep them separated for cleanliness, overriding wrapper */}
             </div>
 
-            <div class="space-y-4">
+            <div class="space-y-6">
               {/* Nombre */}
               <div>
-                <label for="firstName" class="block text-sm font-medium text-gray-700">Nombre</label>
-                <div class="mt-1">
+                <label for="firstName" class="block text-lg font-semibold text-gray-800">Nombre</label>
+                <div class="mt-2">
                   <input
                     id="firstName"
                     name="firstName"
                     type="text"
                     required
-                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-150 ease-in-out"
+                    class="appearance-none block w-full px-4 py-3 border-2 border-gray-300 rounded-lg shadow-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-lg transition duration-200"
                     placeholder="Juan"
                   />
                 </div>
                 {action.value?.fieldErrors?.firstName && (
-                  <p class="mt-1 text-sm text-red-600">{action.value.fieldErrors.firstName}</p>
+                  <p class="mt-1 text-base text-red-600">{action.value.fieldErrors.firstName}</p>
                 )}
               </div>
 
               {/* Apellido */}
               <div>
-                <label for="lastName" class="block text-sm font-medium text-gray-700">Apellido</label>
-                <div class="mt-1">
+                <label for="lastName" class="block text-lg font-semibold text-gray-800">Apellido</label>
+                <div class="mt-2">
                   <input
                     id="lastName"
                     name="lastName"
                     type="text"
                     required
-                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-150 ease-in-out"
+                    class="appearance-none block w-full px-4 py-3 border-2 border-gray-300 rounded-lg shadow-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-lg transition duration-200"
                     placeholder="Pérez"
                   />
                 </div>
                 {action.value?.fieldErrors?.lastName && (
-                  <p class="mt-1 text-sm text-red-600">{action.value.fieldErrors.lastName}</p>
+                  <p class="mt-1 text-base text-red-600">{action.value.fieldErrors.lastName}</p>
                 )}
               </div>
 
               {/* DNI */}
               <div>
-                <label for="dni" class="block text-sm font-medium text-gray-700">DNI</label>
-                <div class="mt-1">
+                <label for="dni" class="block text-lg font-semibold text-gray-800">DNI</label>
+                <div class="mt-2">
                   <input
                     id="dni"
                     name="dni"
                     type="text"
                     inputMode="numeric"
                     required
-                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-150 ease-in-out"
+                    class="appearance-none block w-full px-4 py-3 border-2 border-gray-300 rounded-lg shadow-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-lg transition duration-200"
                     placeholder="12345678"
                   />
                 </div>
                 {action.value?.fieldErrors?.dni && (
-                  <p class="mt-1 text-sm text-red-600">{action.value.fieldErrors.dni}</p>
+                  <p class="mt-1 text-base text-red-600">{action.value.fieldErrors.dni}</p>
                 )}
               </div>
 
               {/* Fecha de Nacimiento */}
               <div>
-                <label for="birthDate" class="block text-sm font-medium text-gray-700">Fecha de Nacimiento</label>
-                <div class="mt-1">
+                <label for="birthDate" class="block text-lg font-semibold text-gray-800">Fecha de Nacimiento</label>
+                <div class="mt-2">
                   <input
                     id="birthDate"
                     name="birthDate"
                     type="date"
                     required
-                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-150 ease-in-out"
+                    class="appearance-none block w-full px-4 py-3 border-2 border-gray-300 rounded-lg shadow-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-lg transition duration-200"
                   />
                 </div>
                 {action.value?.fieldErrors?.birthDate && (
-                  <p class="mt-1 text-sm text-red-600">{action.value.fieldErrors.birthDate}</p>
+                  <p class="mt-1 text-base text-red-600">{action.value.fieldErrors.birthDate}</p>
                 )}
               </div>
 
               {/* Domicilio */}
               <div>
-                <label for="address" class="block text-sm font-medium text-gray-700">Domicilio</label>
-                <div class="mt-1">
+                <label for="address" class="block text-lg font-semibold text-gray-800">Domicilio</label>
+                <div class="mt-2">
                   <input
                     id="address"
                     name="address"
                     type="text"
                     required
-                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-150 ease-in-out"
+                    class="appearance-none block w-full px-4 py-3 border-2 border-gray-300 rounded-lg shadow-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-lg transition duration-200"
                     placeholder="Av. Siempre Viva 123"
                   />
                 </div>
                 {action.value?.fieldErrors?.address && (
-                  <p class="mt-1 text-sm text-red-600">{action.value.fieldErrors.address}</p>
+                  <p class="mt-1 text-base text-red-600">{action.value.fieldErrors.address}</p>
                 )}
               </div>
 
               {/* Celular */}
               <div>
-                <label for="phone" class="block text-sm font-medium text-gray-700">Celular</label>
-                <div class="mt-1">
+                <label for="phone" class="block text-lg font-semibold text-gray-800">Celular</label>
+                <div class="mt-2">
                   <input
                     id="phone"
                     name="phone"
                     type="tel"
                     inputMode="tel"
                     required
-                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm transition duration-150 ease-in-out"
+                    class="appearance-none block w-full px-4 py-3 border-2 border-gray-300 rounded-lg shadow-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 text-lg transition duration-200"
                     placeholder="1198765432"
                   />
                 </div>
                 {action.value?.fieldErrors?.phone && (
-                  <p class="mt-1 text-sm text-red-600">{action.value.fieldErrors.phone}</p>
+                  <p class="mt-1 text-base text-red-600">{action.value.fieldErrors.phone}</p>
                 )}
               </div>
 
               {/* Ha donado anteriormente */}
-              <div>
-                <span class="block text-sm font-medium text-gray-700">¿Ha donado sangre anteriormente?</span>
-                <div class="mt-2 flex items-center space-x-6">
+              <div class="pt-2">
+                <span class="block text-lg font-semibold text-gray-800">¿Ha donado sangre anteriormente?</span>
+                <div class="mt-4 flex items-center space-x-8">
                   <div class="flex items-center">
                     <input
                       id="donated-yes"
                       name="hasDonated"
                       type="radio"
                       value="yes"
-                      class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                      class="focus:ring-indigo-500 h-6 w-6 text-indigo-600 border-gray-300"
                     />
-                    <label for="donated-yes" class="ml-3 block text-sm font-medium text-gray-700">
+                    <label for="donated-yes" class="ml-3 block text-lg font-medium text-gray-700">
                       Sí
                     </label>
                   </div>
@@ -238,15 +238,15 @@ export default component$(() => {
                       name="hasDonated"
                       type="radio"
                       value="no"
-                      class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300"
+                      class="focus:ring-indigo-500 h-6 w-6 text-indigo-600 border-gray-300"
                     />
-                    <label for="donated-no" class="ml-3 block text-sm font-medium text-gray-700">
+                    <label for="donated-no" class="ml-3 block text-lg font-medium text-gray-700">
                       No
                     </label>
                   </div>
                 </div>
                 {action.value?.fieldErrors?.hasDonated && (
-                  <p class="mt-1 text-sm text-red-600">{action.value.fieldErrors.hasDonated}</p>
+                  <p class="mt-1 text-base text-red-600">{action.value.fieldErrors.hasDonated}</p>
                 )}
               </div>
             </div>
@@ -254,12 +254,12 @@ export default component$(() => {
             <div>
               <button
                 type="submit"
-                class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200"
+                class="group relative w-full flex justify-center py-4 px-6 border border-transparent text-xl font-bold rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200 shadow-md hover:shadow-lg"
                 disabled={action.isRunning}
               >
                 {action.isRunning && (
-                  <span class="absolute left-0 inset-y-0 flex items-center pl-3">
-                    <svg class="animate-spin h-5 w-5 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <span class="absolute left-0 inset-y-0 flex items-center pl-4">
+                    <svg class="animate-spin h-6 w-6 text-indigo-500 group-hover:text-indigo-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                       <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                       <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
