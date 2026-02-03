@@ -53,12 +53,10 @@ export default component$(() => {
         <div class="flex min-h-screen items-center justify-center bg-gray-100 p-4">
             <div class="w-full max-w-md rounded-lg bg-white p-6 shadow-md border-l-4 border-yellow-500">
                 <h1 class="mb-2 text-center text-2xl font-bold text-gray-800">
-                    Setup Inicial (Admin)
+                    Crear Administrador
                 </h1>
                 <p class="mb-6 text-center text-sm text-gray-500">
                     Crea tu primer usuario administrador.
-                    <br />
-                    <span class="font-bold text-red-500">IMPORTANTE:</span> Borra esta ruta cuando termines.
                 </p>
 
                 <Form action={action} class="space-y-4">

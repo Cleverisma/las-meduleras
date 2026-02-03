@@ -5,7 +5,6 @@ import { tursoClient } from "~/utils/turso";
 
 export const useLogin = routeAction$(
     async (values, requestEvent) => {
-        console.log('values', values);
         const client = tursoClient(requestEvent);
 
         // Buscar usuario en la base de datos
@@ -14,34 +13,23 @@ export const useLogin = routeAction$(
             args: [values.username],
         });
 
-        console.log('result', result);
-
         if (result.rows.length === 0) {
             return requestEvent.fail(400, {
                 message: "Usuario o contraseña inválidos",
             });
         }
 
-        console.log('result2', result);
-
         const user = result.rows[0];
         const passwordHash = user.password_hash as string;
 
-        console.log('user', user);
-        console.log('passwordHash', passwordHash);
-
         // Verificar contraseña
         const isValid = bcrypt.compareSync(values.password, passwordHash);
-
-        console.log('isValid', isValid);
 
         if (!isValid) {
             return requestEvent.fail(400, {
                 message: "Usuario o contraseña inválidos",
             });
         }
-
-        console.log('isValid2', isValid);
 
         // Crear cookie de sesión
         requestEvent.cookie.set("auth_session", "true", {

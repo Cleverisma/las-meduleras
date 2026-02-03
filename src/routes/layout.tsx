@@ -1,5 +1,6 @@
 import { component$, Slot } from '@builder.io/qwik';
 import { Link, useLocation, routeAction$, Form } from '@builder.io/qwik-city';
+import logoSrc from '~/media/logo_meduleras.png';
 
 export const useLogout = routeAction$((props, { cookie, redirect }) => {
     cookie.delete('auth_session', { path: '/' });
@@ -16,8 +17,9 @@ export default component$(() => {
                 <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
                     {/* Logo Section */}
                     <div class="flex-shrink-0 flex items-center">
-                        <Link href="/" class="text-2xl font-bold text-indigo-700 tracking-tight">
-                            Las Meduleras
+                        <Link href="/" class="flex items-center gap-2">
+                            <img src={logoSrc} alt="Las Meduleras" class="h-12 w-auto" width={48} height={48} />
+                            <span class="text-2xl font-bold text-indigo-700 tracking-tight">Las Meduleras</span>
                         </Link>
                     </div>
 
