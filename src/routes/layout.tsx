@@ -47,11 +47,6 @@ export default component$(() => {
 
                     {/* Right Side: Logout */}
                     <div class="flex items-center">
-                        <div class="md:hidden flex space-x-2 mr-2">
-                            {/* Mobile Links (Simplified for space) */}
-                            <Link href="/" class="text-2xl p-2" title="Registrar">📝</Link>
-                            <Link href="/lista/" class="text-2xl p-2" title="Listado">📋</Link>
-                        </div>
                         <Form action={logout}>
                             <button
                                 type="submit"
@@ -63,6 +58,29 @@ export default component$(() => {
                     </div>
                 </nav>
             </header>
+
+            {/* Mobile Navigation Buttons (Visible only on mobile) */}
+            <div class="md:hidden bg-white border-b border-gray-200 px-4 py-3 space-y-3 shadow-sm">
+                <Link
+                    href="/"
+                    class={`block w-full text-center px-4 py-2 rounded-lg font-semibold transition-all duration-200 ${loc.url.pathname === '/'
+                        ? 'bg-indigo-600 text-white shadow-md'
+                        : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
+                        }`}
+                >
+                    📝 Registrar Donante
+                </Link>
+                <Link
+                    href="/lista/"
+                    class={`block w-full text-center px-4 py-2 rounded-lg font-semibold transition-all duration-200 ${loc.url.pathname.startsWith('/lista')
+                        ? 'bg-indigo-600 text-white shadow-md'
+                        : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
+                        }`}
+                >
+                    📋 Ver Listado
+                </Link>
+            </div>
+
             <main>
                 <Slot />
             </main>
