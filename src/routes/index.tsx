@@ -74,9 +74,6 @@ export default component$(() => {
           <h2 class="mt-4 text-center text-4xl font-extrabold text-gray-900">
             Registrar Nuevo Donante
           </h2>
-          <p class="mt-3 text-center text-lg text-gray-600">
-            Dimensiones aumentadas para mayor legibilidad.
-          </p>
         </div>
 
         {action.value?.success ? (
