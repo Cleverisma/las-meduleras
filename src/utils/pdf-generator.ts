@@ -8,13 +8,14 @@ interface Donante {
     dni: string;
     celular: string;
     es_donante_previo: number;
+    es_donante_medula: number;
     created_at: string;
 }
 
 export const generateDonorsPDF = (donors: Donante[]) => {
     const doc = new jsPDF();
 
-    const tableColumn = ["Nombre", "Apellido", "DNI", "Celular", "Donante Previo", "Fecha Registro"];
+    const tableColumn = ["Nombre", "Apellido", "DNI", "Celular", "Donante Sangre", "Donante Médula", "Fecha Registro"];
     const tableRows: any[] = [];
 
     donors.forEach(donor => {
@@ -24,6 +25,7 @@ export const generateDonorsPDF = (donors: Donante[]) => {
             donor.dni,
             donor.celular,
             donor.es_donante_previo === 1 ? "Sí" : "No",
+            donor.es_donante_medula === 1 ? "Sí" : "No",
             new Date(donor.created_at).toLocaleDateString()
         ];
         tableRows.push(donorData);

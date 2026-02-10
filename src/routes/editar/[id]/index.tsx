@@ -25,6 +25,7 @@ export const useDonorLoader = routeLoader$(async (requestEvent) => {
         address: row.domicilio as string,
         phone: row.celular as string,
         hasDonated: row.es_donante_previo as number,
+        isMarrowDonor: row.es_donante_medula as number,
     };
 });
 
@@ -42,7 +43,8 @@ export const useDonorUpdateAction = routeAction$(
           fecha_nacimiento = ?, 
           domicilio = ?, 
           celular = ?, 
-          es_donante_previo = ?
+          es_donante_previo = ?,
+          es_donante_medula = ?
           WHERE id = ?`,
                 args: [
                     data.firstName,
@@ -52,6 +54,7 @@ export const useDonorUpdateAction = routeAction$(
                     data.address,
                     data.phone,
                     data.hasDonated === 'yes' ? 1 : 0,
+                    data.isMarrowDonor === 'yes' ? 1 : 0,
                     donorId,
                 ],
             });
@@ -84,6 +87,9 @@ export const useDonorUpdateAction = routeAction$(
         address: z.string().min(5, 'El domicilio debe tener al menos 5 caracteres'),
         phone: z.string().regex(/^\d+$/, 'El celular debe contener solo números').min(10, 'El celular debe tener al menos 10 dígitos'),
         hasDonated: z.enum(['yes', 'no'], {
+            errorMap: () => ({ message: 'Por favor seleccione una opción' }),
+        }),
+        isMarrowDonor: z.enum(['yes', 'no'], {
             errorMap: () => ({ message: 'Por favor seleccione una opción' }),
         }),
     })

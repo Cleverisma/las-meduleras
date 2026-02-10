@@ -11,6 +11,7 @@ interface Donante {
     dni: string;
     celular: string;
     es_donante_previo: number;
+    es_donante_medula: number;
     created_at: string;
 }
 
@@ -39,6 +40,7 @@ export const useDonorsLoader = routeLoader$<Donante[]>(async (requestEvent) => {
         dni: row.dni as string,
         celular: row.celular as string,
         es_donante_previo: row.es_donante_previo as number,
+        es_donante_medula: row.es_donante_medula as number,
         created_at: row.created_at as string,
     }));
 });
@@ -166,6 +168,14 @@ export default component$(() => {
                                                     Donante Previo
                                                 </span>
                                             )}
+                                            {donor.es_donante_medula === 1 && (
+                                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 ml-2">
+                                                    <svg class="-ml-0.5 mr-1.5 h-2 w-2 text-blue-400" fill="currentColor" viewBox="0 0 8 8">
+                                                        <circle cx="4" cy="4" r="3" />
+                                                    </svg>
+                                                    Donante Médula
+                                                </span>
+                                            )}
                                         </div>
                                         <div class="mt-4 space-y-2">
                                             <div class="flex items-center text-sm text-gray-500">
@@ -273,7 +283,8 @@ export default component$(() => {
                         </div>
                     )}
                 </>
-            )}
-        </div>
+            )
+            }
+        </div >
     );
 });

@@ -11,6 +11,7 @@ interface DonorFormProps {
         address?: string;
         phone?: string;
         hasDonated?: number; // 1 for yes, 0 for no
+        isMarrowDonor?: number; // 1 for yes, 0 for no
     };
     submitLabel?: string;
 }
@@ -167,6 +168,42 @@ export const DonorForm = component$<DonorFormProps>(({ action, initialValues, su
                     </div>
                     {action.value?.fieldErrors?.hasDonated && (
                         <p class="mt-1 text-base text-red-600">{action.value.fieldErrors.hasDonated}</p>
+                    )}
+                </div>
+
+                {/* Esta registrado como donante de medula osea */}
+                <div class="pt-2">
+                    <span class="block text-lg font-semibold text-gray-800">¿Está registrado como donante de médula ósea?</span>
+                    <div class="mt-4 flex items-center space-x-8">
+                        <div class="flex items-center">
+                            <input
+                                id="marrow-yes"
+                                name="isMarrowDonor"
+                                type="radio"
+                                value="yes"
+                                checked={initialValues?.isMarrowDonor === 1}
+                                class="focus:ring-indigo-500 h-6 w-6 text-indigo-600 border-gray-300"
+                            />
+                            <label for="marrow-yes" class="ml-3 block text-lg font-medium text-gray-700">
+                                Sí
+                            </label>
+                        </div>
+                        <div class="flex items-center">
+                            <input
+                                id="marrow-no"
+                                name="isMarrowDonor"
+                                type="radio"
+                                value="no"
+                                checked={initialValues?.isMarrowDonor === 0}
+                                class="focus:ring-indigo-500 h-6 w-6 text-indigo-600 border-gray-300"
+                            />
+                            <label for="marrow-no" class="ml-3 block text-lg font-medium text-gray-700">
+                                No
+                            </label>
+                        </div>
+                    </div>
+                    {action.value?.fieldErrors?.isMarrowDonor && (
+                        <p class="mt-1 text-base text-red-600">{action.value.fieldErrors.isMarrowDonor}</p>
                     )}
                 </div>
             </div>

@@ -17,8 +17,9 @@ export const useDonorRegisterAction = routeAction$(
           fecha_nacimiento, 
           domicilio, 
           celular, 
-          es_donante_previo
-        ) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+          es_donante_previo,
+          es_donante_medula
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
         args: [
           data.firstName,
           data.lastName,
@@ -26,7 +27,8 @@ export const useDonorRegisterAction = routeAction$(
           data.birthDate,
           data.address,
           data.phone,
-          data.hasDonated === 'yes' ? 1 : 0
+          data.hasDonated === 'yes' ? 1 : 0,
+          data.isMarrowDonor === 'yes' ? 1 : 0
         ],
       });
 
@@ -58,6 +60,9 @@ export const useDonorRegisterAction = routeAction$(
     address: z.string().min(5, 'El domicilio debe tener al menos 5 caracteres'),
     phone: z.string().regex(/^\d+$/, 'El celular debe contener solo números').min(10, 'El celular debe tener al menos 10 dígitos'),
     hasDonated: z.enum(['yes', 'no'], {
+      errorMap: () => ({ message: 'Por favor seleccione una opción' }),
+    }),
+    isMarrowDonor: z.enum(['yes', 'no'], {
       errorMap: () => ({ message: 'Por favor seleccione una opción' }),
     }),
   })
