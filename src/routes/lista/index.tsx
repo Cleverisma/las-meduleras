@@ -2,6 +2,8 @@ import { component$, useSignal } from '@builder.io/qwik';
 import { routeLoader$, useLocation, routeAction$, zod$, z } from '@builder.io/qwik-city';
 import { tursoClient } from '~/utils/turso';
 
+import { generateDonorsPDF } from '~/utils/pdf-generator';
+
 interface Donante {
     id: number;
     nombre: string;
@@ -90,6 +92,18 @@ export default component$(() => {
                             </svg>
                         </button>
                     </div>
+
+                    <button
+                        type="button"
+                        disabled={donors.value.length === 0}
+                        onClick$={() => generateDonorsPDF(donors.value)}
+                        class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                        </svg>
+                        Descargar PDF
+                    </button>
 
                     <form action={loc.url.pathname} method="get" class="flex gap-2">
                         <div class="relative rounded-md shadow-sm">

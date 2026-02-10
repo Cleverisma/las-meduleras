@@ -27,6 +27,11 @@ export default defineConfig(({ command, mode }): UserConfig => {
       tsconfigPaths({ root: "." }),
       tailwindcss(),
     ],
+    resolve: {
+      alias: {
+        jspdf: "jspdf/dist/jspdf.es.min.js",
+      },
+    },
     // This tells Vite which dependencies to pre-build in dev mode.
     optimizeDeps: {
       // Put problematic deps that break bundling here, mostly those with binaries.
